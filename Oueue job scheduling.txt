@@ -1,0 +1,127 @@
+#include<iostream>
+using namespace std;
+#define max 5
+class Queue
+{
+ int queue[max];
+public:
+int ele,i;
+int r,f;   
+void insert();
+void del();
+void display();
+ 
+Queue() 
+{
+r=f=-1;
+}
+ 
+};
+void Queue::insert() 
+{
+if(r == max-1)
+{
+cout<<"Your queue is full"<<endl;
+}
+else
+{
+cout<<"Enter the element:- ";
+cin>>ele;
+r=r+1;
+queue[r]=ele;
+}
+if(r == 0)
+{ 
+f=0;
+}
+ 
+}
+void Queue::del() 
+{ 
+if(f==-1) 
+{
+cout<<"Your queue is empty"<<endl;
+}
+else
+{
+cout<<"deleted element is:- "<<queue[f]<<endl;
+f=f+1;
+}
+if(f>r)
+{
+cout<<"Your queue is empty"<<endl;
+}
+}
+
+void Queue::display() 
+{
+cout<<"\nYour final queue:- "<<endl;
+
+for(i=f;i<=r;i++)
+ 
+{
+cout<<"\t"<<queue[i];
+}
+ 
+}
+int main()
+{
+ 
+int choice;
+ 
+Queue q;
+ 
+do
+ 
+{
+cout<<"\n""1.Insert element"<<endl;
+ 
+cout<<"2.Delete element"<<endl;
+ 
+cout<<"3.Display my queue"<<endl;
+ 
+cout<<"4.Exit"<<endl;
+ 
+cout<<"Enter your choice:- ";
+ 
+cin>>choice;
+ 
+switch(choice)
+ 
+{ case 1:
+ 
+q.insert();
+ 
+break;
+ 
+case 2:
+ 
+q.del();
+ 
+break;
+ 
+case 3:
+ 
+q.display();
+ 
+break;
+ 
+case 4:
+ 
+return 0;
+ 
+break;
+ 
+default: cout<<"Wrong choice"<<endl;
+ 
+break;
+ 
+}
+ 
+}
+ 
+while(choice!=4);
+ 
+return 0;
+ 
+}
